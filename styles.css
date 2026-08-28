@@ -1,0 +1,44 @@
+*{box-sizing:border-box}html,body{margin:0;min-width:320px;min-height:100%;background:#5bc7f5;font-family:system-ui,sans-serif}body{display:grid;place-items:start center}.reference-game{position:relative;width:min(100vw,748px);aspect-ratio:1085/1450;overflow:hidden;background:#5bc7f5;box-shadow:0 12px 40px #063a6570;user-select:none}.reference-art{position:absolute;inset:0;width:100%;height:100%;display:block}.wheel-window{position:absolute;z-index:2;left:4.55%;top:20.7%;width:90.9%;aspect-ratio:1;border-radius:50%;overflow:hidden}.reference-wheel{position:absolute;inset:0;transform-origin:50% 50%;will-change:transform}.reference-wheel>img{position:absolute;width:110%;height:auto;left:-5%;top:-31.3%;max-width:none;pointer-events:none}.reference-hub{position:absolute;z-index:4;left:43%;top:49.45%;width:14%;aspect-ratio:1;border:clamp(3px,.7vw,6px) solid #ffd02e;border-radius:50%;background:radial-gradient(circle at 35% 28%,#78dbff 0 10%,#168fe9 45%,#0667bc 100%);box-shadow:0 3px 0 #b46d00,0 4px 10px #073f7c80,inset 0 0 0 3px #ffffff65;pointer-events:none}.pointer-hit{position:absolute;z-index:5;left:44.5%;top:19.5%;width:11%;height:8.7%;transform-origin:50% 5%;pointer-events:none}.pointer-hit.tick{animation:pointerTick .12s ease-in-out}.hotspot{position:absolute;z-index:8;border:0;background:transparent;cursor:pointer;border-radius:999px}.hotspot:focus-visible{outline:5px solid #fff;box-shadow:0 0 0 9px #106ee0}.hotspot:disabled{cursor:not-allowed}.hotspot-hub{left:43%;top:49.45%;width:14%;aspect-ratio:1}.hotspot-start{left:20.5%;top:86.2%;width:59%;height:7.7%}.hotspot-shuffle{left:17%;top:94.4%;width:31%;height:5.3%}.hotspot-reset{left:51%;top:94.4%;width:31%;height:5.3%}.sound-toggle{position:absolute;z-index:10;right:2%;top:1%;width:44px;height:44px;border:2px solid #fff;border-radius:50%;background:#086eccd9;color:#fff;font-size:22px;cursor:pointer;box-shadow:0 3px 8px #09385980}.result-overlay{position:fixed;z-index:100;inset:0;display:grid;place-items:center;background:#061e2eb8;backdrop-filter:blur(2px);overflow:hidden}.result-overlay[hidden]{display:none}.result-overlay>img{position:relative;z-index:2;display:block;width:min(100vw,748px);height:min(100vh,1000px);object-fit:contain;filter:drop-shadow(0 12px 30px #0008);animation:pop .45s cubic-bezier(.2,1.45,.4,1)}.result-overlay>button{position:fixed;z-index:5;bottom:2.5%;left:50%;transform:translateX(-50%);border:4px solid #fff;border-radius:999px;padding:10px 24px;background:linear-gradient(#ff4f86,#d91558);color:#fff;font-size:clamp(18px,4vw,28px);font-weight:800;box-shadow:0 5px 0 #8c163d;cursor:pointer;white-space:nowrap}.confetti i{position:absolute;z-index:4;top:-10%;left:var(--x);width:10px;height:22px;background:var(--c);animation:fall var(--d) var(--delay) linear infinite;transform:rotate(var(--r))}@keyframes pointerTick{50%{transform:rotate(-13deg)}}@keyframes pop{from{transform:scale(.55);opacity:0}}@keyframes fall{to{transform:translateY(120vh) rotate(720deg)}}@media(min-width:749px){body{padding:20px 0}.reference-game{border-radius:22px}}@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important}}
+
+.fixed-pointer{position:absolute;z-index:7;left:43.8%;top:19.25%;width:12.4%;height:9.4%;overflow:hidden;transform-origin:50% 8%;pointer-events:none}
+.fixed-pointer>img{position:absolute;width:806%;height:auto;left:-353%;top:-205%;max-width:none}
+.fixed-pointer.tick{animation:pointerTick .12s ease-in-out}
+.fixed-controls{position:absolute;z-index:7;inset:0;clip-path:inset(84.5% 0 0);pointer-events:none}
+.fixed-controls>img{position:absolute;inset:0;width:100%;height:100%;max-width:none}
+.bulb-ring{position:absolute;z-index:6;left:4.55%;top:20.7%;width:90.9%;aspect-ratio:1;border-radius:50%;pointer-events:none}
+.bulb-ring i{position:absolute;inset:1.6%;transform:rotate(var(--a));border-radius:50%}
+.bulb-ring i::before{content:"";position:absolute;left:50%;top:-.3%;width:clamp(7px,1.7vw,14px);aspect-ratio:1;transform:translateX(-50%);border-radius:50%;background:#fff;box-shadow:0 0 4px 2px #fff;animation:bulbFlash .72s var(--delay) ease-in-out infinite alternate}
+@keyframes bulbFlash{0%,28%{background:#fff;box-shadow:0 0 3px 1px #fff;opacity:.72}70%,100%{background:#fff45c;box-shadow:0 0 11px 6px #fff04a,0 0 20px 8px #fff8a0;opacity:1}}
+
+/* The spinning artwork has a clean notch where the stationary pointer overlaps it. */
+.reference-wheel{-webkit-mask-image:radial-gradient(circle at 50% 0%,transparent 0 8.2%,#000 8.8%);mask-image:radial-gradient(circle at 50% 0%,transparent 0 8.2%,#000 8.8%)}
+.fixed-pointer{left:41.47%;top:17.93%;width:17.05%;height:auto;aspect-ratio:185/170;overflow:visible;transform-origin:50% 23%}
+.fixed-pointer>img{position:static;display:block;width:100%;height:100%;object-fit:contain;max-width:none}
+.fixed-pointer.tick{animation:pointerFineTick .12s ease-in-out}
+@keyframes pointerFineTick{0%,100%{transform:rotate(0)}50%{transform:rotate(-5deg)}}
+
+/* Keep a single continuous wheel: do not reveal the background wheel through a top notch. */
+.reference-wheel{-webkit-mask-image:none!important;mask-image:none!important}
+
+
+/* User requested removal of the duplicated top wheel layer. */
+.wheel-window{display:none!important}
+
+
+/* Single working wheel: remove the wheel from the static artwork, then show one rotating wheel in its place. */
+.reference-art{
+  -webkit-mask-image:radial-gradient(ellipse 45.45% 34% at 50% 54.7%,transparent 0 99%,#000 100%);
+  mask-image:radial-gradient(ellipse 45.45% 34% at 50% 54.7%,transparent 0 99%,#000 100%);
+}
+.wheel-window{display:block!important}
+
+/* Simplified bottom controls: hide baked controls and place Start lower. */
+.fixed-controls{display:none!important}
+.controls-cleaner{position:absolute;z-index:7;left:0;right:0;top:85.5%;bottom:0;background:linear-gradient(180deg,#9bde31 0%,#78cd22 42%,#55b817 100%);pointer-events:none}
+.controls-cleaner::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 10% 65%,#b7ec4b 0 2%,transparent 2.5%),radial-gradient(ellipse at 88% 35%,#aee745 0 2%,transparent 2.5%),linear-gradient(12deg,transparent 48%,#91dc32 49% 51%,transparent 52%);opacity:.55}
+.start-button-art{position:absolute;z-index:8;left:18.9%;top:90.2%;width:62.2%;height:auto;pointer-events:none;filter:drop-shadow(0 5px 2px #235f2b66)}
+.hotspot-start{left:19.8%;top:91.1%;width:60.4%;height:7.2%;z-index:9}
+.hotspot-shuffle,.hotspot-reset{display:none!important}
+
+/* The clean full-scene artwork now supplies the entire lower background. */
+.controls-cleaner{display:none!important}
